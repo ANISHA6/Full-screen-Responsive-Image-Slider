@@ -1,0 +1,118 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-family: sans-serif;
+    background: #333;
+    color: white;
+    line-height: 1.6;
+}
+.slider{
+    position: relative;
+overflow: hidden;
+height: 100vh;
+width: 100vw;
+}
+
+.slide{
+    /* want to slide overlay whole thing */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* initially, set opacity to 0, and only for current class */
+    /* change it to 1; */
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+}
+.slide.current{
+    opacity: 1;
+}
+
+.slide .content{
+    position: absolute;
+    bottom: 60px;
+    left: -500px;
+    opacity: 0;
+    width: 500px;
+    background-color: rgba(255, 255,255, 0.8);
+color: #333;
+padding: 10px;
+
+}
+
+.slide .content h1{
+    margin-bottom: 8px;
+}
+
+.slide.current .content{
+    opacity: 1;
+    transform: translateX(500px);
+    /* transition for all property , 0.3s, for delay*/
+    transition: all 0.7s ease-in-out 0.3s;
+}
+
+.buttons button#next{
+    position: absolute;
+    top: 50%;
+    right: 15px;
+}
+
+.buttons button#prev{
+    position: absolute;
+    top: 50%;
+    left: 15px;
+}
+
+.buttons button{
+    border: 2px solid white;
+    background-color: transparent;
+    color: white;
+    cursor: pointer;
+    padding: 13px 15px;
+    border-radius: 50%;
+    outline: none;
+}
+
+.buttons button:hover{
+    background-color: whitesmoke;
+    color: darkcyan;
+}
+
+/* add media query to make page more responsive */
+@media(max-width:500px){
+.slide .content{
+    bottom: -300px;
+    left: 0;
+    width: 100%;
+}
+.slide.current .content{
+    /* -ve, for moving up */
+    transform: translateY(-300px);
+}
+}
+
+/* backgroung images */
+
+.slide:first-child{
+    background: url('https://cdn.britannica.com/03/151903-131-E310E9EC/Microphone-background-sound-waves-energy-Music.jpg') no-repeat center center/cover;
+}
+
+.slide:nth-child(2){
+    background: url('https://cdn.pocket-lint.com/r/s/485x/assets/images/148215-gadgets-review-review-apple-ipod-touch-7th-generation-initial-review-still-here-for-the-non-streamers-image1-9lgy8uapxx.jpg') no-repeat center center/cover;
+}
+.slide:nth-child(3){
+    background: url('https://cdn.pixabay.com/photo/2017/05/26/08/09/laptop-2345485_960_720.jpg') no-repeat center center/cover;
+}
+.slide:nth-child(4){
+    background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQs8LKIEbETle03q37LBLqDOUk3SCKnZAfM3A&usqp=CAU') no-repeat center center/cover;
+}
+.slide:nth-child(5){
+    background: url('https://globalgrasshopper.com/wp-content/uploads/2012/01/10-of-the-most-beautiful-places-to-visit-in-Laos.jpg') no-repeat center center/cover;
+}
+.slide:nth-child(6){
+    background: url('https://deih43ym53wif.cloudfront.net/hanging_bridge_himachal_india_shutterstock_1087070918_c59e0eb675.jpeg') no-repeat center center/cover;
+}
